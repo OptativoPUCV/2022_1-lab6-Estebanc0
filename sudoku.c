@@ -45,7 +45,7 @@ void print_node(Node* n){
 
 int is_valid(Node* n){
   for(int i=0;i<9;i++){
-    int filaAux[10]=0;
+    int filaAux[10]={0};
     for(int j=0;j<9;j++){
       if(filaAux[n->sudo[i][j]]){
         return 0;
@@ -56,7 +56,7 @@ int is_valid(Node* n){
     }
   }
   for(int i=0;i<9;i++){
-    int columAux[10]=0;
+    int columAux[10]={0};
     for(int j=0;j<9;j++){
       if(columAux[n->sudo[i][j]]){
         return 0;
@@ -66,7 +66,7 @@ int is_valid(Node* n){
       }
     }
   }
-    
+
     return 1;
 }
 
