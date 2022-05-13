@@ -4,3 +4,16 @@ vi., 13 de may. de 2022 17:30:26:
  tests:  1|4
 total_score: 10/70
 579fe58
+vi., 13 de may. de 2022 17:40:29: 
+ sudoku.c | 22 ++++++++++++++++++++++
+ 1 file changed, 22 insertions(+)
+In file included from test.c:5:0:
+sudoku.c: In function 'is_valid':
+sudoku.c:48:21: error: invalid initializer
+     int filaAux[10]=0;
+                     ^
+sudoku.c:59:22: error: invalid initializer
+     int columAux[10]=0;
+                      ^
+Compilation failed
+560d4f9
