@@ -66,14 +66,14 @@ int is_valid(Node* n){
       }
     }
   }
-  for ( int x = 0 ; x < 9 ; x++){
-    int validar3[10] = {0};
-    int k = x;
-    for ( int y = 0 ; y < 9 ; y++){
-      int z = 3*(k/3) + (y/3);
-      int w = 3*(k%3) + (y%3);
-      if ( validar3[n->sudo[z][w]] != 0) return 0;
-      if ( validar3[n->sudo[z][w]] == 0 && n->sudo[z][w] != 0) validar3[n->sudo[z][w]] = 1;
+  for ( int i = 0 ; i < 9 ; i++){
+    int subAux[10] = {0};
+    int k = i;
+    for ( int j = 0 ; j < 9 ; j++){
+      int z = 3*(k/3) + (j/3);
+      int w = 3*(k%3) + (j%3);
+      if ( subAux[n->sudo[z][w]] != 0) return 0;
+      if ( subAux[n->sudo[z][w]] == 0 && n->sudo[z][w] != 0) subAux[n->sudo[z][w]] = 1;
     }
   }  
 
@@ -114,6 +114,22 @@ int is_final(Node* n){
 }
 
 Node* DFS(Node* initial, int* cont){
+  Stack* aux=createStack();
+  push(aux,initial);
+  while(get_size(aux)!=0){
+    Node* nodAux=top(aux);
+    pop(aux);
+    if(is_final(aux)) return aux;
+    List* lista=get_adj_nodes(aux);
+    Node* lisAux=first(lista);
+    while(lisAux){
+      push(aux,lisAux);
+      lisAux=next(lista);
+    }
+    free(nodAux);
+    cont++;
+    
+  }
   return NULL;
 }
 
