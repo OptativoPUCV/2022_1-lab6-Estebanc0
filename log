@@ -69,3 +69,9 @@ sudoku.c:122:30: error: return from incompatible pointer type [-Werror=incompati
 cc1.exe: all warnings being treated as errors
 Compilation failed
 95ed47d
+do., 15 de may. de 2022 21:01:00: 
+ sudoku.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  8|1
+total_score: 60/70
+081bad9
