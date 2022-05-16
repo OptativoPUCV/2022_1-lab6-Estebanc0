@@ -120,7 +120,7 @@ Node* DFS(Node* initial, int* cont){
     Node* nodAux=top(aux);
     pop(aux);
     if(is_final(aux)) return aux;
-    List* lista=get_adj_nodes(aux);
+    List* lista=get_adj_nodes(nodAux);
     Node* lisAux=first(lista);
     while(lisAux){
       push(aux,lisAux);
