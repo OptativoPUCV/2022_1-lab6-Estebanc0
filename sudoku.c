@@ -66,14 +66,40 @@ int is_valid(Node* n){
       }
     }
   }
+  for ( int x = 0 ; x < 9 ; x++){
+    int validar3[10] = {0};
+    int k = x;
+    for ( int y = 0 ; y < 9 ; y++){
+      int z = 3*(k/3) + (y/3);
+      int w = 3*(k%3) + (y%3);
+      if ( validar3[n->sudo[z][w]] != 0) return 0;
+      if ( validar3[n->sudo[z][w]] == 0 && n->sudo[z][w] != 0) validar3[n->sudo[z][w]] = 1;
+    }
+  }  
 
-    return 1;
+  return 1;
 }
 
 
 List* get_adj_nodes(Node* n){
-    List* list=createList();
-    return list;
+  List*aux=createList();
+  int  i,j,k;
+  for(i = 0; i<9 ; i++){
+    for(j = 0; j<9 ; j++){
+      if(n->sudo[i][j]==0){
+        for(k = 1; k<10 ; k++){
+          n->sudo[i][j]=k;
+          if(is_valid(n)){
+            Node*adj = copy(n);
+            pushBack(aux,adj);
+          }
+        }
+        n->sudo[i][j]= 0;
+        return aux;
+      }
+    }
+  }    
+  return aux;
 }
 
 
